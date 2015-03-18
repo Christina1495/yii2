@@ -12,9 +12,12 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
+# composer test dir
+/test
+# composer runtime dir
+/runtime
 # composer vendor dir
 /vendor
-
 # composer itself is not needed
 composer.phar
 
