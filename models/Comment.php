@@ -43,8 +43,8 @@ class Comment extends \yii\db\ActiveRecord
         return [
             'id_com' => 'Id Com',
             'id' => 'ID',
-            'text' => 'Текст сообщения',
-            'date_mes' => 'Дата',
+            'text' => 'Text',
+            'date_mes' => 'Date Mes',
         ];
     }
 }

@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\LoginForm;
 use Yii;
 use app\models\Comment;
 use app\models\CommentSearch;
@@ -62,8 +61,7 @@ class CommentController extends Controller
     public function actionCreate()
     {
         $model = new Comment();
-        var_dump(\Yii::$app->user);die();
-      //  \yii\web\User::
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_com]);
         } else {
