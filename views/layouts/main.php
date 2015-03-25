@@ -37,7 +37,7 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Комментарии', 'url' => ['/comment/index']],
                     ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                    ['label' => 'Регистрация', 'url' => ['/user/register']],
                     ['label' => 'User', 'url' => ['/user']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/user/login']] :
@@ -47,6 +47,7 @@ AppAsset::register($this);
                 ],
             ]);
             NavBar::end();
+
         ?>
 
         <div class="container">

@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             padding: 10px; "> <br>
             <legend>
                 <div>
-                    <?php echo $comment ->id ?>
+                    <?php echo $comment -> g_book-> login ?>
                     <?php echo "Дата:". $comment->date_mes ?>
                 </div>
             </legend>
