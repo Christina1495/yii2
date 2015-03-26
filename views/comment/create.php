@@ -13,9 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="comment-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    //$log_id = Yii::$app->user->id;
+    // echo "blanla    ".$log_id
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-
+   // displayName
 </div>

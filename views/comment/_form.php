@@ -10,9 +10,11 @@ use yii\widgets\ActiveForm;
 
 <div class="comment-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin();
+    $log_id = Yii::$app->user->id;
+    ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
+<?= $form->field($model,'id')-> textarea()?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 

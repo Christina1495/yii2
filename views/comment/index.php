@@ -21,14 +21,21 @@ $this->params['breadcrumbs'][] = $this->title;
             padding: 10px; "> <br>
             <legend>
                 <div>
-                    <?php echo $comment -> g_book-> login ?>
+                    <?php
+                    //$log_id = Yii::$app->user->id;
+                   // if ($comment->id == $user->id)
+
+                    echo $comment->id ?>
                     <?php echo "Дата:". $comment->date_mes ?>
                 </div>
             </legend>
             <? echo $comment->text?>
         </fieldset>
-    <?php } ?>
+    <?php }  ?>
     <br>
+
+
+
     <p>
         <?= Html::a('Create Comment', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
