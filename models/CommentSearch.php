@@ -18,8 +18,8 @@ class CommentSearch extends Comment
     public function rules()
     {
         return [
-            [['id_com', 'id'], 'integer'],
-            [['text', 'date_mes'], 'safe'],
+            [['id_com'], 'integer'],
+            [['Name_user', 'text', 'date_mes'], 'safe'],
         ];
     }
 
@@ -57,11 +57,11 @@ class CommentSearch extends Comment
 
         $query->andFilterWhere([
             'id_com' => $this->id_com,
-            'id' => $this->id,
             'date_mes' => $this->date_mes,
         ]);
 
-        $query->andFilterWhere(['like', 'text', $this->text]);
+        $query->andFilterWhere(['like', 'Name_user', $this->Name_user])
+            ->andFilterWhere(['like', 'text', $this->text]);
 
         return $dataProvider;
     }

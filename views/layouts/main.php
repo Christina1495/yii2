@@ -35,15 +35,16 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Комментарии', 'url' => ['/comment/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Регистрация', 'url' => ['/user/register']],
-                    ['label' => 'User', 'url' => ['/user']],
+                   // ['label' => 'Регистрация', 'url' => ['/user/register']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/user/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->displayName . ')',
+                        ['label' => 'Вход', 'url' => ['/user/login']] :
+                        ['label' => 'Выход (' . Yii::$app->user->displayName . ')',
                             'url' => ['/user/logout'],
                             'linkOptions' => ['data-method' => 'post']],
+                    Yii::$app->user->can("admin")?
+                        ['label' => 'User', 'url' => ['/user']]
+                        :
+                        ['label' => 'Комментарии', 'url' => ['/comment/index']],
                 ],
             ]);
             NavBar::end();

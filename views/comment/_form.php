@@ -10,16 +10,14 @@ use yii\widgets\ActiveForm;
 
 <div class="comment-form">
 
-    <?php $form = ActiveForm::begin();
-    $log_id = Yii::$app->user->id;
-    ?>
+    <?php $form = ActiveForm::begin(); ?>
 
-<?= $form->field($model,'id')-> textarea()?>
+    <?= $form->field($model, 'Name_user')->textInput(['maxlength' => 50]) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Добавить комментарий' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
