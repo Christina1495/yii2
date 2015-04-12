@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\base\Model;
 
 /**
  * This is the model class for table "comment".
@@ -31,7 +32,9 @@ class Comment extends \yii\db\ActiveRecord
             [['Name_user', 'text'], 'required'],
             [['text'], 'string'],
             [['date_mes'], 'safe'],
-            [['Name_user'], 'string', 'max' => 50]
+            [['Name_user'], 'string', 'max' => 50],
+            ['verifyCode', 'captcha'],
+
         ];
     }
 
@@ -45,6 +48,8 @@ class Comment extends \yii\db\ActiveRecord
             'Name_user' => 'Логин',
             'text' => 'Текст сообщения',
             'date_mes' => 'Дата добавление',
+            'verifyCode' => 'Verification Code',
+
         ];
     }
 }

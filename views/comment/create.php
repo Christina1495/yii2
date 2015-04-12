@@ -16,6 +16,7 @@ $this->title = 'Добавление комментария';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'model1' =>$modelc,
     ]) ?>
 
 </div>

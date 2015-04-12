@@ -5,7 +5,9 @@ namespace app\controllers;
 use Yii;
 use app\models\Comment;
 use app\models\CommentSearch;
+use yii\captcha\Captcha;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -25,7 +27,18 @@ class CommentController extends Controller
             ],
         ];
     }
-
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
     /**
      * Lists all Comment models.
      * @return mixed
@@ -61,15 +74,18 @@ class CommentController extends Controller
     public function actionCreate()
     {
         $model = new Comment();
-
+        $modelc = new Captcha();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             return $this->redirect(['view', 'id' => $model->id_com]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'model' =>$modelc,
             ]);
         }
+
+
     }
 
     /**

@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php } ?>
 <br>
     <p>
-        <?= Yii::$app->user->isGuest ?
-            Html::a('Вход', ['/user/login'], ['class' => 'btn btn-success']):
+        <?= /*Yii::$app->user->isGuest ?
+            Html::a('Вход', ['/user/login'], ['class' => 'btn btn-success']):*/
             Html::a('Оставить комментарий', ['create'], ['class' => 'btn btn-success'])?>
     </p>
 
