@@ -36,6 +36,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                    // ['label' => 'Регистрация', 'url' => ['/user/register']],
+                    ['label' => 'Комментарии', 'url' => ['/comment/index']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Вход', 'url' => ['/user/login']] :
                         ['label' => 'Выход (' . Yii::$app->user->displayName . ')',
@@ -44,7 +45,7 @@ AppAsset::register($this);
                     Yii::$app->user->can("admin")?
                         ['label' => 'User', 'url' => ['/user']]
                         :
-                        ['label' => 'Комментарии', 'url' => ['/comment/index']],
+                        ['label' => 'Связь с админом', 'url' => ['/site/contact']],
                 ],
             ]);
             NavBar::end();

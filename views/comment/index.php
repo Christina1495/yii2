@@ -12,26 +12,24 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comment-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <?php
+    foreach($dataProvider->models as $comment){?>
+        <fieldset style="border: 5px solid #008080;
+            padding: 10px; "> <br>
+            <legend>
+                <div>
+                    <?php echo $comment ->Name_user ?>
+                  <h7> <small> <?php echo "Дата:". $comment->date_mes ?></small></h7>
+                </div>
+            </legend>
+            <? echo $comment->text?>
+        </fieldset>
+    <?php } ?>
+<br>
     <p>
-        <?= Html::a('Create Comment', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Yii::$app->user->isGuest ?
+            Html::a('Вход', ['/user/login'], ['class' => 'btn btn-success']):
+            Html::a('Оставить комментарий', ['create'], ['class' => 'btn btn-success'])?>
     </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-      //  'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-           // 'id_com',
-            'Name_user',
-            'text:ntext',
-            'date_mes',
-
-           // ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 
 </div>
